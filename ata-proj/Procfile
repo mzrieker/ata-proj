@@ -1,1 +1,0 @@
-web: java -cp target/uberjar/ata-proj.jar clojure.main -m ata-proj.core
