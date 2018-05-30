@@ -26,8 +26,7 @@
    [:a.navbar-brand {:href "#/"} "ata-proj"]
    [:div#collapsing-navbar.collapse.navbar-collapse
     [:ul.nav.navbar-nav.mr-auto
-     [nav-link "#/" "Home" :home]
-     [nav-link "#/about" "About" :about]]]])
+     [nav-link "#/" "Home" :home]]]])
 
 (defn about-page []
   [:div.container
@@ -35,16 +34,18 @@
     [:div.col-md-12
      [:img {:src "/img/warning_clojure.png"}]]]])
 
-(defn home-page []
+(defn log-page []
   [:div.container
-   (when-let [docs (:docs @session)]
-     [:div.row>div.col-sm-12
-      [:div {:dangerouslySetInnerHTML
-             {:__html (md->html docs)}}]])])
+   [:div.row
+    [:div.col-md-12]]])
+
+(defn home-page []
+  [:div.container])
 
 (def pages
   {:home #'home-page
-   :about #'about-page})
+   :about #'about-page
+   :log #'log-page})
 
 (defn page []
   [(pages (:page @session))])
@@ -58,6 +59,9 @@
 
 (secretary/defroute "/about" []
   (swap! session assoc :page :about))
+
+(secretary/defroute "/log" []
+  (swap! session assoc :page :log))
 
 ;; -------------------------
 ;; History
