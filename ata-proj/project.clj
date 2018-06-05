@@ -23,11 +23,13 @@
                  [org.clojure/clojurescript "1.10.238" :scope "provided"]
                  [org.clojure/tools.cli "0.3.7"]
                  [org.clojure/tools.logging "0.4.1"]
+                 [org.clojure/core.async "0.4.474"]
                  [org.webjars.bower/tether "1.4.3"]
                  [org.webjars/bootstrap "4.1.0"]
                  [org.webjars/font-awesome "5.0.13"]
                  [org.webjars/webjars-locator "0.34"]
                  [reagent "0.8.0"]
+                 [org.jasani/ezd3 "0.1.1"]
                  [ring-webjars "0.2.0"]
                  [ring/ring-core "1.6.3"]
                  [ring/ring-defaults "0.3.1"]
@@ -35,7 +37,7 @@
                  [selmer "1.11.7"]]
 
   :min-lein-version "2.0.0"
-  
+
   :source-paths ["src/clj" "src/cljs" "src/cljc"]
   :test-paths ["test/clj"]
   :resource-paths ["resources" "target/cljsbuild"]
@@ -51,7 +53,7 @@
    :nrepl-port 7002
    :css-dirs ["resources/public/css"]
    :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-  
+
 
   :profiles
   {:uberjar {:omit-source true
@@ -69,8 +71,8 @@
                  :closure-warnings
                  {:externs-validation :off :non-standard-jsdoc :off}
                  :externs ["react/externs/react.js"]}}}}
-             
-             
+
+
              :aot :all
              :uberjar-name "ata-proj.jar"
              :source-paths ["env/prod/clj"]
@@ -106,9 +108,9 @@
                       :source-map true
                       :optimizations :none
                       :pretty-print true}}}}
-                  
-                  
-                  
+
+
+
                   :doo {:build "test"}
                   :source-paths ["env/dev/clj"]
                   :resource-paths ["env/dev/resources"]
@@ -126,7 +128,7 @@
                       :main "ata-proj.doo-runner"
                       :optimizations :whitespace
                       :pretty-print true}}}}
-                  
+
                   }
    :profiles/dev {}
    :profiles/test {}})
